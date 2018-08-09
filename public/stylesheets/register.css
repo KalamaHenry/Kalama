@@ -1,0 +1,25 @@
+a{
+	text-decoration: none;
+}
+.warn{
+	display: none;
+}
+.pass-wrap{
+	margin-bottom: .04rem;
+}
+.success{
+	position: fixed;
+	left: 50%;
+	top: .2rem;
+	color: #fff;
+	font-size: 12px;
+	background: rgba(0,0,0,0.4);
+    border-radius: 4px;
+    padding: .03rem;
+    display: none;
+}
+.success img{
+	width: 20px;
+	position: relative;
+    top: .013rem;
+}

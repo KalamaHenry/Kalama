@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+		<!-- iPhone会将看起来像电话号码的数字添加电话连接，应当关闭 -->
+		<meta name="format-detection" content="telephone=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="HandheldFriendly" content="true">
+		<title>慢生活</title>
+		<link rel="shortcut icon" href="/images/favicon.ico">
+		<link rel="stylesheet" href="/stylesheets/cssreset.css">
+		<link rel="stylesheet" href="/stylesheets/index.css">
+		<link rel="stylesheet" href="/stylesheets/study.css">
+	</head>
+	<body>
+		<div class="myNav">
+			<nav class="nav-wrap">
+			    <div class="navbar-header">
+				  <ul class="navbar-toggle">
+				        <li class="icon-bar icon-bar1"></li>
+				        <li class="icon-bar icon-bar2"></li>
+				        <li class="icon-bar icon-bar3"></li>
+			      </ul> 
+			      <a class="navbar-brand" href="/index">Kalama博客</a>
+			    </div>
+
+			    <div class="navbar-collapse">
+			      <ul class="navbar-nav">
+			        <li><a href="/index">首页</a></li>
+			        <li><a href="#">关于我</a></li>
+			        <li class="slideDown">
+			        	<a href="/study">学无止境</a>
+			        	<ul>
+			        		<li><a href="/study?id=HTML">HTML</a></li>
+			        		<li><a href="/study?id=CSS">CSS</a></li>
+			        		<li><a href="/study?id=JavaScript">JavaScript</a></li>
+			        		<li><a href="/study?id=jQuery">jQuery</a></li>
+			        	</ul>
+			        </li>
+			        <li class="slideDown">
+			        	<a href="/live" class="current">慢生活</a>
+ 			        	<ul>
+			        		<li><a href="/study?id=HTML">HTML</a></li>
+			        		<li><a href="/study?id=CSS">CSS</a></li>
+			        		<li><a href="/study?id=JavaScript">JavaScript</a></li>
+			        		<li><a href="/study?id=jQuery">jQuery</a></li>
+			        	</ul>	 			        	
+			        </li>
+			        <li><a href="#">时间轴</a></li>
+			        <li><a href="/write">发表文章</a></li>
+			      </ul>
+			    </div>
+			</nav>
+		</div>
+
+		<div class="big_bg"><img src="/images/study_bg.png" alt=""></div>
+		<div class="dir">
+			<ul>
+				<li><a href="/index">网站首页</a></li>
+				<li><a href="#">慢生活</a></li>
+			</ul>
+			<p>慢生活，不是懒惰，放慢速度不是拖延时间，而是让我们在生活中寻找到平衡。</p>
+		</div>
+
+		<div class="con">
+			<!-- 左边 -->
+			<div class="con-left">
+				<div class="con-title">
+					<ul>
+						<li><a href="#" class="sort">排序:</a></li>
+						<li><a href="#" class="defa current">默认</a></li>
+						<li><a href="#" class='time'>按更新时间</a></li>
+					</ul>
+				</div>
+				<!-- 文章 -->
+				<div class="article">
+					<%for(i=0;i<more;i++){%>
+						<div class="item item-float">
+							<a href="#" class="toDetail" onclick='toDetail(this)'>
+								<span class="_id"><%=result[i]._id%></span>
+								<h1 class="title"><%= result[i].title %></h1>
+								<span class="left"></span>
+								<div class="points">
+									<p><%= result[i].con[0].conTit+result[i].con[0].conMain %></p>
+									<ul>
+										<li><span class="class-icon"></span><%= result[i].category%></li>
+										<li><span class="time-icon"></span><%= result[i].time%></li>
+										<li><span class="author-icon"></span><%= result[i].author%></li>
+									</ul>
+								</div>
+							</a>
+						</div>
+					<%}%>
+				</div>
+			</div>
+			<div class="con-right">
+				<div class="c-r-items">
+					<ul class="item-top">
+						<li>
+							<span class="top">学无止境</span>
+							<p class="bot">个人博客，属于我的小世界！</p>
+							<a href="#" class="shadow"></a>
+						</li>
+						<li>
+							<span class="top">学无止境</span>
+							<p class="bot">个人博客，属于我的小世界！</p>
+							<a href="#" class="shadow"></a>
+						</li>
+					</ul>
+					<div class="item">
+						<h2>学无止境</h2>
+						<a href="#" class="intro"><span>别让这些闹心的套路，毁了你的网页设计!</span></a>
+						<ul class="lists">
+							<li>
+								<span class="pic"></span>
+								<div class="con-wrap">
+									<a href="#" class="tit">别让这些闹心的套路，毁了你的网页设计</a><br>
+									<span class="date">2018-05-13</span>
+								</div>
+							</li>
+							<li>
+								<span class="pic pic1"></span>
+								<div class="con-wrap">
+									<a href="#" class="tit">别让这些闹心的套路，毁了你的网页设计</a><br>
+									<span class="date">2018-05-13</span>
+								</div>
+							</li>
+							<li>
+								<span class="pic pic2"></span>
+								<div class="con-wrap">
+									<a href="#" class="tit">别让这些闹心的套路，毁了你的网页设计</a><br>
+									<span class="date">2018-05-13</span>
+								</div>
+							</li>
+							<li>
+								<span class="pic pic3"></span>
+								<div class="con-wrap">
+									<a href="#" class="tit">别让这些闹心的套路，毁了你的网页设计</a><br>
+									<span class="date">2018-05-13</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="item">
+						<h2>慢生活</h2>
+						<a href="#" class="intro"><span>别让这些闹心的套路，毁了你的网页设计!</span></a>
+						<ul class="lists">
+							<li>
+								<span class="pic"></span>
+								<div class="con-wrap">
+									<a href="#" class="tit">别让这些闹心的套路，毁了你的网页设计</a><br>
+									<span class="date">2018-05-13</span>
+								</div>
+							</li>
+							<li>
+								<span class="pic pic1"></span>
+								<div class="con-wrap">
+									<a href="#" class="tit">别让这些闹心的套路，毁了你的网页设计</a><br>
+									<span class="date">2018-05-13</span>
+								</div>
+							</li>
+							<li>
+								<span class="pic pic2"></span>
+								<div class="con-wrap">
+									<a href="#" class="tit">别让这些闹心的套路，毁了你的网页设计</a><br>
+									<span class="date">2018-05-13</span>
+								</div>
+							</li>
+							<li>
+								<span class="pic pic3"></span>
+								<div class="con-wrap">
+									<a href="#" class="tit">别让这些闹心的套路，毁了你的网页设计</a><br>
+									<span class="date">2018-05-13</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="item tag">
+						<h2>标签云</h2>
+						<span>陌上花开</span>
+						<span>校园生活</span>
+						<span>田园生活</span>
+						<span>html5</span>
+						<span>jQuery</span>
+						<span>css</span>
+						<span>MongoDB</span>
+						<span>青春</span>
+						<span>温暖</span>
+						<span>环游世界</span>
+						<span>阳光</span>
+						<span>世外桃源</span>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<!-- 尾部 -->
+		<div class="footer">
+			<div>Design by<a href="#">&nbsp;古美坤个人博客</a></div>
+		</div>
+		<script src="/javascripts/jquery.min.js"></script>
+		<script src='/javascripts/index.js'></script>
+	</body>
+</html>

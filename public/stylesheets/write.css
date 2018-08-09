@@ -1,0 +1,78 @@
+.con{
+	border: 1px solid #dcdcdc;
+	padding: 0 .09rem;
+	margin-top: .06rem;
+	box-sizing: border-box;
+}
+.con-left{
+	width: 80%;
+	border: 1px solid transparent;
+	border-right: 1px solid #dcdcdc;
+}
+.con .con-right{
+	text-align: center;
+	width: 15%;
+}
+.con-right .manage{
+	background: #00A7EB;
+    color: #fff;
+    display: inline-block;
+    padding: .02rem .04rem;
+    margin-top: .05rem;
+    cursor: pointer;
+}
+.con .con-left .con-tit{
+	width: 95%;
+    padding: .02rem;
+    box-sizing: border-box;
+    margin-bottom: .06rem;
+}
+.con .con-left .edit{
+	width: 95%;
+    resize: none;
+    outline: 0;
+    word-wrap: break-word;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: .9rem;
+}
+.con .con-left .choose,.con .con-left .btn{
+	font-size: 15px;
+	color: #4F4F4F;
+	margin-top: .06rem;
+}
+.con .con-left .choose select{
+	outline: 0;
+	color: #4F4F4F;
+	padding: .01rem .04rem;
+	cursor: pointer;
+}
+.con .con-left .btn span{
+    padding: .02rem .04rem;
+    border: 1px solid #00A7EB;
+    border-radius: .01rem;
+    cursor: pointer;	
+}
+.con .con-left .btn span:hover{
+	background: #00A7EB;
+	color: #fff;
+}
+.con .con-left .tips_text,.con .con-left .tips_bot{
+	font-size: 12px;
+    color: red;
+    display: none;
+}
+.con .con-left .tips_text{
+    position: relative;
+    top: -.04rem;
+}
+@media (min-width: 720px) and(max-width: 959px){
+	.con-right .manage,.con .con-left .con-tit,.con .con-left .choose, .con .con-left .btn{
+		font-size: 16px;
+	}
+}
+@media(max-width: 719px){
+	.con-right .manage,.con .con-left .con-tit,.con .con-left .choose, .con .con-left .btn{
+		font-size: 12px;
+	}
+}

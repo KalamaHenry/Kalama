@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+		<!-- iPhone会将看起来像电话号码的数字添加电话连接，应当关闭 -->
+		<meta name="format-detection" content="telephone=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="HandheldFriendly" content="true">
+		<title>学无止境</title>
+		<link rel="shortcut icon" href="/images/favicon.ico">
+		<link rel="stylesheet" href="/stylesheets/cssreset.css">
+		<link rel="stylesheet" href="/stylesheets/index.css">
+		<link rel="stylesheet" href="/stylesheets/study.css">
+	</head>
+	<body>
+		<div class="myNav">
+			<nav class="nav-wrap">
+			    <div class="navbar-header">
+				  <ul class="navbar-toggle">
+				        <li class="icon-bar icon-bar1"></li>
+				        <li class="icon-bar icon-bar2"></li>
+				        <li class="icon-bar icon-bar3"></li>
+			      </ul> 
+			      <a class="navbar-brand" href="/index">Kalama博客</a>
+			    </div>
+
+			    <div class="navbar-collapse">
+			      <ul class="navbar-nav">
+			        <li><a href="/index">首页</a></li>
+			        <li><a href="#">关于我</a></li>
+			        <li class="slideDown">
+			        	<a href="/study" class="current">学无止境</a>
+			        	<ul>
+			        		<li><a href="/study?id=HTML">HTML</a></li>
+			        		<li><a href="/study?id=CSS">CSS</a></li>
+			        		<li><a href="/study?id=JavaScript">JavaScript</a></li>
+			        		<li><a href="/study?id=jQuery">jQuery</a></li>
+			        	</ul>
+			        </li>
+			        <li class="slideDown">
+			        	<a href="/live">慢生活</a>
+ 			        	<ul>
+			        		<li><a href="/study?id=HTML">HTML</a></li>
+			        		<li><a href="/study?id=CSS">CSS</a></li>
+			        		<li><a href="/study?id=JavaScript">JavaScript</a></li>
+			        		<li><a href="/study?id=jQuery">jQuery</a></li>
+			        	</ul>	 			        	
+			        </li>
+			        <li><a href="#">时间轴</a></li>
+			        <li><a href="/write">发表文章</a></li>
+			      </ul>
+			    </div>
+			</nav>
+		</div>
+
+		<div class="big_bg"><img src="/images/study_bg.png" alt=""></div>
+		<div class="dir">
+			<ul>
+				<li><a href="/index">网站首页</a></li>
+				<li><a href="#">学无止境</a></li>
+			</ul>
+			<p>不要轻易放弃。学习成长的路上，我们长路漫漫，只因学无止境。</p>
+		</div>
+
+		<div class="con">
+			<!-- 左边 -->
+			<div class="con-left">
+				<div class="con-title">
+					<ul>
+						<li><a href="#" class="sort">排序:</a></li>
+						<li><a href="#" class="defa current">默认</a></li>
+						<li><a href="#" class='time'>按更新时间</a></li>
+					</ul>
+				</div>
+				<!-- 文章 -->
+				<div class="article">
+					<%for(i=0;i<more;i++){%>
+						<div class="item item-float">
+							<a href="#" class="toDetail" onclick='toDetail(this)'>
+								<span class="_id"><%=result[i]._id%></span>
+								<h1 class="title"><%= result[i].title %></h1>
+								<span class="left"></span>
+								<div class="points">
+									<p><%= result[i].con[0].conTit+result[i].con[0].conMain %></p>
+									<ul>
+										<li><span class="class-icon"></span><%= result[i].category%></li>
+										<li><span class="time-icon"></span><%= result[i].time%></li>
+										<li><span class="author-icon"></span><%= result[i].author%></li>
+									</ul>
+								</div>
+							</a>
+						</div>
+					<%}%>
+				</div>
+			</div>
+			<div class="con-right">
+				<div class="personal">
+					<div>
+						<a href="/showLogin"><img src="/images/timg.jpg" alt="个人头像"></a>
+						<h3>未登录</h3>
+						<h4>趁年轻，多奋斗，多折腾！</h4>
+					</div>
+					<ul class="top">
+						<li class="first"></li>
+						<li></li>
+						<li class="last"></li>
+					</ul>
+					<ul class="bot">
+						<li class="first"></li>
+						<li></li>
+						<li class="last"></li>
+					</ul>
+				</div>
+				<div class="c-r-items">
+					<div class="item">
+						<h2>学无止境</h2>
+						<ul class="cato">
+							<li><a href="/study?id=HTML"><span class="left">HTML</span><span class="right"><%=html%>篇</span></a></li>
+							<li><a href="/study?id=CSS"><span class="left">CSS</span><span class="right"><%=css%>篇</span></a></li>
+							<li><a href="/study?id=JavaScript"><span class="left">JavaScript</span><span class="right"><%=js%>篇</span></a></li>
+							<li><a href="/study?id=jQuery"><span class="left">jQuery</span><span class="right"><%=jq%>篇</span></a></li>
+						</ul>
+					</div>
+					<div class="item tag">
+						<h2>标签云</h2>
+						<span>陌上花开</span>
+						<span>校园生活</span>
+						<span>田园生活</span>
+						<span>html5</span>
+						<span>jQuery</span>
+						<span>css</span>
+						<span>MongoDB</span>
+						<span>青春</span>
+						<span>温暖</span>
+						<span>环游世界</span>
+						<span>阳光</span>
+						<span>世外桃源</span>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<!-- 尾部 -->
+		<div class="footer">
+			<div>Design by<a href="#">&nbsp;古美坤个人博客</a></div>
+		</div>
+		<div class="return-top" title="返回顶部"><span></span></div>
+		<script src="/javascripts/jquery.min.js"></script>
+		<script src='/javascripts/index.js'></script>
+		<script src='/javascripts/study.js'></script>
+	</body>
+</html>

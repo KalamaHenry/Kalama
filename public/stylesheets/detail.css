@@ -1,0 +1,106 @@
+html{
+	font-size: 100%;
+}
+/* 实现font-size响应式 */
+$min-font-size: 1rem;
+$max-font-size: 1.5rem;
+$min-screen: 400px;
+$max-screen: 1200px;
+.con-left .con-top .title{
+	font-size: $min-font-size;
+}
+@media(min-width: $min-screen) and(max-width: $max-screen){
+	.con-left .con-top .title{
+		font-size:calc($min-font-size+0.5*((100vw-$min-screen)/800));
+	}	
+}
+@media (min-width: $max-screen){
+	.con-left .con-top .title{
+		font-size: $max-font-size;
+	}
+}
+.con-left{
+	width: 66%;
+    float: left;
+    background: #fff;
+    padding: 3% 1.5%;
+    border: 1px solid #dcdcdc;
+}
+.con-left .con-top{
+	border-bottom: 1px solid #dcdcdc;
+	padding-bottom: .02rem;
+}
+.con-left .con-top .title{
+    font-weight: bold;
+    color: #333;
+    font-size: 21px;
+    margin-bottom: .05rem;
+}
+.con-left .con-top .date{
+	font-size: 14px;
+    color: #6b6b6b;
+}
+.con-left .content{
+	font-size: 16px;
+	color: #999;
+	padding: .04rem 0;
+}
+.con-left .cato,.con-left ul li{
+	color: #4d4d4d;
+    font-size: 12px;
+}
+.con-left .cato span{
+	color:#566573;
+	cursor: pointer;
+}
+.con-left .cato span:hover{
+	color:#68a6d6;
+}
+.con-left ul .pre,.con-left ul .next{
+	margin-right: .02rem;
+	border: 1px solid #dcdcdc;
+	padding: .005rem .02rem;
+	float: left;
+}
+.con-left ul li{
+	cursor: pointer;
+	overflow: hidden;
+}
+.con-left ul li:hover{
+	color:#00A7EB;
+}
+.con-left ul li:hover .pre,.con-left ul li:hover .next{
+	border: 1px solid #00A7EB;
+} 
+.con-left ul li{
+	padding: .01rem 0rem .01rem;
+    margin-top: .02rem;
+    margin-right: .06rem;
+}
+.con-left ul .pre-tit,.con-left ul .next-tit{
+	float: left;
+    padding-top: .005rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+@media (max-width: 959px){
+	.con-left ul li{
+		width: 100%;
+	}
+}
+@media(max-width: 719px){
+	.con-left .con-top .title{
+		font-size: 14px;
+	}
+	.con-left .con-top .date,.con-left .content{
+		font-size: 12px;
+	}
+}
+@media(max-width: 500px){
+	.con-left ul .pre-tit,.con-left ul .next-tit{
+		width: 100%;
+	}
+}

@@ -1,0 +1,129 @@
+/*
+* @Author: admin
+* @Date:   2018-08-08 14:28:42
+* @Last Modified by:   admin
+* @Last Modified time: 2018-08-09 16:20:20
+*/
+html,body{
+	padding-bottom: .1rem
+}
+.con{
+	box-sizing: border-box;
+	margin-bottom: .2rem;
+    margin-top: .07rem;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.02), 0 4px 8px 0 rgba(0,0,0,.02);
+}
+.con h1{
+	font-weight: 400;
+    padding: 0;
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: -.0125em;
+    text-shadow: 0 1px rgba(255,255,255,.9);
+    color:#444;
+	border-bottom:1px solid #ededed;
+	padding-bottom: .04rem;
+}
+.con .tit{
+	color:#333;
+	font-size: 20px;
+	width: 90%;
+	margin: 0 auto;
+	border-bottom:1px dashed #ededed;
+	padding: .05rem 0;
+}
+
+.con form li .m-right{
+	border: none;
+	color: #8C7E7E;
+}
+.con form ul{
+	width: 80%;
+	margin: 0 auto;
+	padding: .1rem 0;
+	color:#8C7E7E;
+}
+.con form ul .m-left{
+	padding-top: .01rem;
+	min-width: .4rem;
+	text-align: right;
+	display: inline-block;
+}
+.con form ul li{
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.con form li input[type="text"],.con form li input[type="password"],textarea{
+	width: .62rem;
+	padding: .02rem;
+    background: #FCFCFC;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.05);
+    -webkit-transition: color .2s linear,border-color .3s linear;
+    outline: none;
+    color: #777;
+    font-size: 16px;
+}
+.con form ul li input[type="radio"]{
+	box-shadow: none;
+	display: inline;
+	margin-left: .1rem
+}
+.con form li>*{
+	margin-bottom: 0.05rem;
+}
+.save{
+	margin-left: .42rem;
+	color: #fff;
+	padding: .01rem .03rem;
+	border-radius: 4px;
+	background: #00A7EB;
+}
+.about{
+	position: relative;
+    top: -.25rem;
+}
+textarea{
+	resize: none;
+	width: 1rem;
+	height: .2rem;
+}
+.success{
+	position: fixed;
+	left: 50%;
+	top: .2rem;
+	color: #fff;
+	font-size: 12px;
+	background: rgba(0,0,0,0.4);
+    border-radius: 4px;
+    padding: .03rem;
+    display: none;
+}
+.success img{
+	width: 20px;
+	position: relative;
+    top: .013rem;
+}
+@media(max-width: 959px){
+	.con h1{
+		font-size:20px;
+	}
+	.con .tit{
+		font-size:17px;
+	}
+	.con form ul .m-left,.con form ul .m-right{
+		font-size: 14px;
+	}
+}
+
+@media(max-width: 719px){
+	.con h1,.con .tit{
+		font-size:14px;
+	}
+	.con form ul .m-left,.con form ul .m-right{
+		font-size: 12px;
+	}
+}

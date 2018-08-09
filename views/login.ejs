@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<link rel="shortcut icon" href="/images/favicon.ico">
+		<link rel="stylesheet" href="/stylesheets/login.css">
+	</head>
+	<body>
+		<div class="con">
+			<form class="myForm" action="/doLogin" method="post">
+			<!-- <form class="myForm"> -->
+			    <div class="user-wrap">
+			      <span class="left">用户名</span>
+			      <input type="text" name="user" placeholder="用户名">
+			      <%if(flag==0){%>
+			      <div class="warn">用户名不存在</div>
+			      <%}%>
+			    </div>
+			    <div class="pass-wrap">
+			      <span class="left">密码</span>
+			      <input type="password" name="pass" placeholder="密码">
+			    </div>
+			    <div class="choice-wrap">
+			    	<input type="checkbox">记住我
+			    	<a class="res-bt" href="/showRegis">还没账号？立即注册</a>
+			    </div>
+			    <%if(flag==1){%>
+			      <div class="warn">密码错误</div>
+			    <%}%>
+			    <input type="submit" class="login" value="登录" />
+			    <!-- <span class="login">登录</span> -->
+			    <!-- <span class="return" onclick="javascript:history.back(-1)">返回</span> -->
+			    <!-- <a class="return" href="/index">返回</a> -->
+			    <a class="return" href="#" onclick="window.history.back()">返回</a>
+			</form>
+		</div>
+		<script src="/javascripts/jquery.min.js"></script>
+		<script src="/javascripts/login.js"></script>
+	</body>
+</html>

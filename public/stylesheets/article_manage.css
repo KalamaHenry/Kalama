@@ -1,0 +1,48 @@
+/*
+* @Author: Administrator
+* @Date:   2018-08-05 19:53:23
+* @Last Modified by:   admin
+* @Last Modified time: 2018-08-06 11:28:22
+*/
+.con{
+	padding: 0 .09rem 0 0;
+}
+.con .con-left{
+	padding:0;
+	padding-bottom: .2rem;
+}
+.con .con-title li a{
+	font-size:17px;
+}
+.con-left .article .points{
+	width:100%;
+}
+.con-left .article .points .l{
+	float: left;
+}
+.article .points .r{
+	float:right;
+}
+.article .points .r li{
+	float:left;
+}
+.article .points .r .update{
+	color:#00A7EB;
+}
+.article .points .r .delete{
+	color:#ca0c16;
+}
+.con-left .article .points ul{
+	margin-top: 0;
+}
+.con .con-left .author-id{
+	display: none;
+}
+.con .con-title li{
+	width: .4rem;
+}
+@media (max-width: 719px){
+	.con .con-title li a{
+		font-size: 12px;
+	}
+}
