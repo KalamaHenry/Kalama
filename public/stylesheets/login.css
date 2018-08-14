@@ -1,41 +1,54 @@
 body{
 	font-size: 17px;
 	background: url('../images/login.jpg') center center no-repeat;
-	background-size: cover;
+	background-size: 100% 100%;
 	background-attachment: fixed;
 }
 .con{
-	width: 1rem;
-	margin: 0 auto;
+	/* width: 1rem;
+	margin: 0 auto; */
 	padding-top: .4rem;
+	text-align: center;
 }
 .con .left{
-	width: .2rem;
 	padding: .01rem;
     display: inline-block;
     text-align: right;
     color: #fff;
+    float: right;
 }
-.con div>input{
+.con div>input[type="text"],.con div>input[type="password"]{
 	width: .6rem;
     margin-left: .03rem;
     height: .06rem;
     font-size: 17px;
     outline: none;
     border-radius: 5px;
+    /* float: right; */
+    padding: .015rem;
 }
 .con .user-wrap{
 	margin-bottom: .04rem;
+	overflow: hidden;
+}
+.con .pass-wrap{
+	overflow: hidden;
 }
 .con input[type=checkbox]{
-	width: .04rem;
-    margin-left: .25rem;
+	/* width: .04rem; */
     position: relative;
-    top: .02rem;
+    top: .01rem;
 }
 .con .choice-wrap{
 	font-size: 12px;
 	color: #fff;
+	padding: .02rem 0;
+}
+.con .input-check,.con .pass-check{
+	text-align: center;
+}
+.login{
+	border: none;
 }
 .login,.return{
     padding: .02rem .03rem;
@@ -43,14 +56,16 @@ body{
     background: #00A7EB;
     cursor: pointer;
     color: #fff;
-    margin: .04rem .09rem 0 .3rem;
+    /* margin: .03rem .09rem 0 .3rem; */
     display: inline-block;
+    font-size: 17px;
 }
 .login:hover,.return:hover{
 	background: #1f82ab;
 }
 .return{
-	 margin: .04rem .09rem;
+	margin-left: .1rem;
+	text-decoration: none;
 }
 .res-bt{
 	color: #00A7EB;
@@ -60,12 +75,28 @@ body{
 	color: #1f82ab
 }
 .warn{
-	color:red;
-	font-size: 12px;
-	padding: .02rem .27rem;
+	color: red;
+    font-size: 12px;
+    padding: 0 .02rem .02rem;
+    margin-left: .01rem;
+    
+}
+.con .tips-error{
+	text-align: center;
+}
+.con .tips-error .warn{
+	margin-top: .02rem;
 }
 @media(max-width: 959px){
-	.con input,.con .left{
+	.con input,.con .left,.con div>input[type="text"], .con div>input[type="password"]{
 		font-size: 14px;
+	}
+	.login, .return{
+		font-size: 12px;
+	}
+}
+@media(max-width: 720px){
+	.con div>input[type="text"], .con div>input[type="password"]{
+		font-size: 12px;
 	}
 }

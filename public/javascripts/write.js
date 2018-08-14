@@ -1,8 +1,8 @@
 /*
 * @Author: Administrator
 * @Date:   2018-08-05 15:31:36
-* @Last Modified by:   admin
-* @Last Modified time: 2018-08-06 15:27:16
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-08-10 22:07:59
 */
 $('.sub-btn').click(function(event) {
 	if($('.con-tit').val()==''){
@@ -12,8 +12,6 @@ $('.sub-btn').click(function(event) {
 	}else if($('option:selected').index('select option')=='0'){
 		alert('请选择文章分类')
 	}else{//发布文章
-		console.log($('option:selected').index('select option'))
-		// console.log($('.con .con-left .con-tit').val()+' '+$('.con .con-left textarea').val()+' '+$('option:selected').val())
 		$.ajax({
 			url:`/publish`,
 			method:'get',
@@ -24,7 +22,7 @@ $('.sub-btn').click(function(event) {
 			},
 			success:function(res){
 				if(res=='ok')
-					location.href='http://127.0.0.1:8989/article_manage'
+					location.href='/article_manage'
 				else
 					alert('后台出错了')
 			},
@@ -46,7 +44,7 @@ $('.edit').keyup(function(event) {
 $('.article .points .r .delete').click(function(event) {
 	if(confirm('确定删除该文章？')){
 		var temp=$(this).parents('.item').find('.author-id').html()
-		location.href=`http://127.0.0.1:8989/deleteArt?id=${temp}`
+		location.href=`/deleteArt?id=${temp}`
 	}else{
 		console.log('取消删除')
 	}

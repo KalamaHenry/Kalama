@@ -5,7 +5,8 @@ var bodyParser = require('body-parser');
 var ObjectId=require('mongodb').ObjectId;
 
 router.get(`/`,(req,res)=>{
-  db.find('article','item',{},(err,result)=>{
+  db.find('blog','article',{},(err,result)=>{
+  res.set("Content-Type","text/html; charset=gb2312"); 
     res.render('index',{
       result:result,
       username:'',
@@ -20,13 +21,13 @@ router.get(`/showRegis`,(req,res)=>{
 
 router.post(`/doRegis`,(req,res)=>{
   var whereStr={name:req.body.user}
-  db.find('blogUser','item',whereStr,(err,result)=>{
+  db.find('blog','user',whereStr,(err,result)=>{
     if(result.length>0){
       res.end(JSON.stringify(result))
     }else{
       //先插数据，再重定向
       var obj={name:req.body.user,pass:req.body.pass}
-      db.insert('blogUser','item',obj,(err1,result1)=>{
+      db.insert('blog','user',obj,(err1,result1)=>{
           if(err1) throw err1;
           // res.redirect(`/showLogin`)  将跳转交给客户端实现
           res.end(JSON.stringify('ok'))
@@ -44,22 +45,15 @@ router.post(`/doLogin`,(req,res)=>{
   var whereStr={
     "name":req.body.user
   }
-  db.find('blogUser','item',whereStr,(err,result)=>{
+  db.find('blog','user',whereStr,(err,result)=>{
         if (err) {
-            // res.send(500);
-            res.end('后台出错了')
+            res.send('后台出错了')
         } else if (!result.length) {
             req.session.error = '用户名不存在！';
-            // res.send(404);
-            /*res.set("Content-Type","text/plain")
-            res.end('用户名不存在！')*/
                res.render(`login`,{flag:0})
         } else {
            if(req.body.pass != result[0].pass){
                req.session.error = "密码错误!";
-               // res.send(404);
-               /*res.set("Content-Type","text/plain")
-               res.end('密码错误!')*/
                res.render(`login`,{flag:1})
            }else{
               req.session.user=result[0].name;
@@ -79,7 +73,7 @@ router.get(`/logout`,(req,res)=>{
 router.get(`/index`,(req,res)=>{
     var len=0;//数据库文档个数
     var arr=[]
-    db.find('article','item',{},(err,result)=>{
+    db.find('blog','article',{},(err,result)=>{
       len=result.length;
       if(req.session.user){
         user=req.session.user
@@ -109,7 +103,7 @@ router.get(`/index`,(req,res)=>{
 })
 
 router.get(`/study`,(req,res)=>{
-    db.find('article','item',{type:"study"},(err,result)=>{
+    db.find('blog','article',{type:"study"},(err,result)=>{
       var html=0,css=0,js=0,jq=0,j=0;
       var arr=[];
       var id=req.query.id;
@@ -129,6 +123,7 @@ router.get(`/study`,(req,res)=>{
       }
       if(arr.length>0){
         res.render(`study`,{
+              name:req.session.user,
               result:arr,
               more:arr.length,
               html:html,
@@ -138,6 +133,7 @@ router.get(`/study`,(req,res)=>{
             })
       }else{
         res.render(`study`,{
+              name:req.session.user,
               result:result,
               more:result.length,
               html:html,
@@ -150,7 +146,7 @@ router.get(`/study`,(req,res)=>{
 })
 
 router.get(`/live`,(req,res)=>{
-  db.find('article','item',{type:"study"},(err,result)=>{
+  db.find('blog','article',{type:"study"},(err,result)=>{
     res.render(`live`,{
       result:result,
       more:result.length
@@ -174,7 +170,7 @@ router.get(`/write`,(req,res)=>{
 })
 
 router.get(`/detail`,(req,res)=>{
-  db.find('article','item',{},(err,result)=>{
+  db.find('blog','article',{},(err,result)=>{
     var html=0,css=0,js=0,jq=0,j=0;
     var arr=[];
     var id=req.query.id;
@@ -193,6 +189,7 @@ router.get(`/detail`,(req,res)=>{
       }
     }
     res.render(`detail`,{
+              name:req.session.user,
               result:arr,
               more:arr.length,
               html:html,
@@ -213,18 +210,18 @@ router.get(`/publish`,(req,res)=>{
       url:'/detail?id='+req.query.category,
       time:new Date().getFullYear()+'-'+(parseInt(new Date().getMonth())+1)+'-'+new Date().getDate()
     }
-    db.insert('article','item',obj,function(err,result){
+    db.insert('blog','article',obj,function(err,result){
       res.send('ok')
     })
   }
   else{
-    res.send('无权访问')
+    res.redirect(`error`)
   }
 })
 
 router.get(`/article_manage`,(req,res)=>{
   if(req.session.user&&req.session.right=='super'){
-    db.find('article','item',{},(err,result)=>{
+    db.find('blog','article',{},(err,result)=>{
       res.render('article_manage',{result:result})
     })
   }else{
@@ -234,7 +231,7 @@ router.get(`/article_manage`,(req,res)=>{
 
 router.get(`/deleteArt`,(req,res)=>{
   if(req.session.user&&req.session.right=='super'){
-    db.delete('article','item',{_id:new ObjectId(req.query.id)},(err,result)=>{  
+    db.delete('blog','article',{_id:new ObjectId(req.query.id)},(err,result)=>{  
       res.redirect(`/article_manage`)
     })
   }else{
@@ -244,7 +241,7 @@ router.get(`/deleteArt`,(req,res)=>{
 
 router.get(`/about`,(req,res)=>{
   if(req.session.user){
-    db.find('blogUser','item',{name:req.session.user},(err,result)=>{
+    db.find('blog','user',{name:req.session.user},(err,result)=>{
       res.render('about',{result:result[0]})
     })
   }else{
@@ -253,10 +250,11 @@ router.get(`/about`,(req,res)=>{
 })
 
 router.post(`/doAbout`,(req,res)=>{
+  console.log(req.body)
   if(req.session.user){
     var whereStr={"name":req.body.username};
-    var updateStr={$set:{"nickname":req.body.nickname}}
-    db.update('blogUser','item',whereStr,updateStr,function(err,result){
+    var updateStr={$set:req.body}
+    db.update('blog','user',whereStr,updateStr,function(err,result){
       res.send('ok')
     })
   }else{

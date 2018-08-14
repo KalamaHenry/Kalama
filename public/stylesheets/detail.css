@@ -36,7 +36,7 @@ $max-screen: 1200px;
     font-size: 21px;
     margin-bottom: .05rem;
 }
-.con-left .con-top .date{
+.con-left .con-top .date,.con-left .con-top .author{
 	font-size: 14px;
     color: #6b6b6b;
 }

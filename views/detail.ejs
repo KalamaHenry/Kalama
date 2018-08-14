@@ -24,13 +24,13 @@
 				        <li class="icon-bar icon-bar2"></li>
 				        <li class="icon-bar icon-bar3"></li>
 			      </ul> 
-			      <a class="navbar-brand" href="#">Kalama博客</a>
+			      <a class="navbar-brand" href="/index">Kalama博客</a>
 			    </div>
 
 			    <div class="navbar-collapse">
 			      <ul class="navbar-nav">
 			        <li><a href="/index">首页</a></li>
-			        <li><a href="#">关于我</a></li>
+			        <li><a href="/about">关于我</a></li>
 			        <li class="slideDown">
 			        	<a href="/study">学无止境</a>
 			        	<ul>
@@ -69,8 +69,9 @@
 			<!-- 左边 -->
 			<div class="con-left">
 				<div class="con-top">
-					<h1 href="#" class="title"><%=result[0].title%></h1>
-					<p class="date"><%=result[0].time%></p>
+					<h1 class="title"><%=result[0].title%></h1>
+					<span class="date"><%=result[0].time%></span>
+					<span class="author"><%=result[0].author%></span>
 				</div>
 				<p class="content"><%=result[0].con[0].conMain%></p>
 				<p class="cato">个人分类：<span class="cato-name"><%=result[0].category%></span></p>
@@ -85,8 +86,14 @@
 			<div class="con-right">
 				<div class="personal">
 					<div>
-						<a href="#"><img src="<%=result[0].img%>" alt="个人头像"></a>
-						<h3>Kalama</h3>
+						<%if(!name){%>
+							<a href="/showLogin"><img src="/images/timg.jpg" alt="个人头像"></a>
+							<h3>未登录</h3>
+						<%}%>
+						<%if(name){%>
+							<a href="/about"><img src="/images/timg.jpg" alt="个人头像"></a>
+							<h3><%=name%></h3>
+						<%}%>
 						<h4>趁年轻，多奋斗，多折腾！</h4>
 					</div>
 					<ul class="top">

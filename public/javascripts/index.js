@@ -154,7 +154,17 @@ $('.more-btn').click(function(event) {
 });
 
 function toDetail(a){
-	var temp=$(a).parents('.article').find('._id').html();
-	console.log(temp)
-	location.href=`http://127.0.0.1:8989/detail?id=${temp}`
+	var temp=$(a).parents('.item').find('._id').html();
+	location.href=`/detail?id=${temp}`
 }
+
+//返回顶部
+$(window).scroll(function(event) {
+	if($(window).scrollTop()>800)
+		$('.return-top').show()	
+	else
+		$('.return-top').hide()	
+});
+$('.return-top').click(function(event) {
+	$('html,body').animate({'scrollTop':0}, 600)
+});

@@ -6,6 +6,7 @@ a{
 }
 .pass-wrap{
 	margin-bottom: .04rem;
+	overflow: hidden;
 }
 .success{
 	position: fixed;
